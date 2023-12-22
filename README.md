@@ -1,3 +1,6 @@
+install streamlit
+  ``pip install streamlit`` 
+
 run ``streamlit run annotation.py``
 
 Annotate and Don't forget to save the CSV file. 
