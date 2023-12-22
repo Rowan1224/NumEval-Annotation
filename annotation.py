@@ -18,12 +18,7 @@ def save_csv(df, file):
     except Exception as e:
         st.error(f"Error saving CSV file: {e}")
 
-# def load_item(df, index):
 
-#     # Editable cells
-
-
-    
 
 # Streamlit app
 def main():
