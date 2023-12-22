@@ -63,7 +63,7 @@ def main():
                 st.session_state.index = max(0, st.session_state.index - 1)
 
                 current_index.text(f"Row: {st.session_state.index + 1}")
-                save_csv(st.session_state.df, "edited_data-temp.csv")
+                save_csv(st.session_state.df, "edited_data.csv")
 
                 
 
@@ -79,7 +79,7 @@ def main():
 
                     current_index.text(f"Row: {st.session_state.index}")
 
-                    save_csv(st.session_state.df, "edited_data-temp.csv")
+                    save_csv(st.session_state.df, "edited_data.csv")
 
                 except ValueError:
                     st.warning("Please enter a valid index.")
@@ -91,25 +91,8 @@ def main():
                 st.session_state.index = min(len(st.session_state.df) - 1, st.session_state.index + 1)
 
                 current_index.text(f"Row: {st.session_state.index}")
-                
-                save_csv(st.session_state.df, "edited_data-temp.csv")
 
-            
-            # if st.button("Jump"):
-
-            #     st.session_state.jump = True
-            #     index = st.text_input("Jump Index")
-
-            #     if st.button("Go!!"):
-
-            #         index = int(index)
-            #         print("Here: ",index)
-            #         st.session_state.df.at[st.session_state.index, 'ans_sent'] = st.session_state.new_value
-
-            #         st.session_state.index = min(len(st.session_state.df) - 1, index)
-
-            #         current_index.text(f"Current Row: {st.session_state.index}")
-            #         save_csv(st.session_state.df, "edited_data-temp.csv")
+                save_csv(st.session_state.df, "edited_data.csv")
                 
 
             col_names = ['news','masked headline', 'ans', 'calculation', 'ans_sent']
@@ -129,6 +112,8 @@ def main():
             # Save button
             if st.button("Save Changes",type='primary'):
                 save_csv(st.session_state.df, f"edited_data.csv")
+                return
+
 
 if __name__ == "__main__":
     main()
